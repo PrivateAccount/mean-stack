@@ -4,10 +4,10 @@ body {
     color: #777;
 }
 div.header {
-    background-color: #fcfcff;
+    background-color: #fff;
 }
 div.footer {
-    background-color: #dfdfdf;
+    background-color: #fff;
 }
 .table-bordered>thead>tr>th,
 .table-bordered>tbody>tr>th,

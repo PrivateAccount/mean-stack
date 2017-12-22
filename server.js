@@ -1,10 +1,10 @@
-var express = require('express'),
-    app = express(),
-    morgan = require('morgan');
-
+var express = require('express');
+var morgan = require('morgan');
 var bodyParser = require('body-parser');
 
 Object.assign = require('object-assign');
+
+var app = express();
 
 app.use(express.static(__dirname + '/public'));
 
@@ -12,7 +12,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-
 app.use(morgan('combined'));
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
@@ -38,8 +37,8 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
     }
 }
 
-var db = null,
-    dbDetails = new Object();
+var db = null;
+var dbDetails = new Object();
 var ObjectID = require('mongodb').ObjectID;
 
 var initDb = function () {
