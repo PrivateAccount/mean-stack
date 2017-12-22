@@ -86,7 +86,6 @@ app.post('/api/todo', function (req, res) {
         ip: req.ip,
         date: Date.now()
     }, function (err, result) {
-        if (err) throw err;
         res.send(result);
     });
 });
@@ -96,10 +95,11 @@ app.put('/api/todo/:id', function (req, res) {
         _id: new ObjectID(req.params.id)
     }, {
         $set: {
-            text: req.body.text
+            text: req.body.text,
+            ip: req.ip,
+            date: Date.now()
         }
     }, function (err, result) {
-        if (err) throw err;
         res.send(result);
     });
 });
@@ -108,7 +108,6 @@ app.delete('/api/todo/:id', function (req, res) {
     db.collection('todos').removeOne({
         _id: new ObjectID(req.params.id)
     }, function (err, result) {
-        if (err) throw err;
         res.send(result);
     });
 });
