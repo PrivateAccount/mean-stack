@@ -42,13 +42,9 @@ var db = null,
     dbDetails = new Object();
 var ObjectID = require('mongodb').ObjectID;
 
-var initDb = function (callback) {
+var initDb = function () {
     var mongodb = require('mongodb');
     mongodb.connect(mongoURL, function (err, conn) {
-        if (err) {
-            callback(err);
-            return;
-        }
         db = conn;
         dbDetails.databaseName = db.databaseName;
         dbDetails.url = mongoURLLabel;
@@ -57,85 +53,61 @@ var initDb = function (callback) {
     });
 };
 
+initDb();
+
 app.get('/', function (req, res) {
     res.sendFile('index.html');
 });
 
 app.get('/api/todos', function (req, res) {
-    if (!db) {
-        initDb(function (err) {});
-    }
-    if (db) {
-        db.collection('todos', function (err, collection) {
-            collection.find().toArray(function (err, result) {
-                res.send(result);
-            });
+    db.collection('todos', function (err, collection) {
+        collection.find().toArray(function (err, result) {
+            res.send(result);
         });
-    }
+    });
 });
 
 app.get('/api/todo/:id', function (req, res) {
-    if (!db) {
-        initDb(function (err) {});
-    }
-    if (db) {
-        db.collection('todos', function (err, collection) {
-            collection.findOne({
-                _id: new ObjectID(req.params.id)
-            }, function (err, result) {
-                res.send(result);
-            });
+    db.collection('todos', function (err, collection) {
+        collection.findOne({
+            _id: new ObjectID(req.params.id)
+        }, function (err, result) {
+            res.send(result);
         });
-    }
+    });
 });
 
 app.post('/api/todo', function (req, res) {
-    if (!db) {
-        initDb(function (err) {});
-    }
-    if (db) {
-        var myObj = {
-            text: req.body.text,
-            ip: req.ip,
-            date: Date.now()
-        };
-        db.collection('todos').insertOne(myObj, function (err, result) {
-            if (err) throw err;
-            res.send(result);
-        });
-    }
+    db.collection('todos').insertOne({
+        text: req.body.text,
+        ip: req.ip,
+        date: Date.now()
+    }, function (err, result) {
+        if (err) throw err;
+        res.send(result);
+    });
 });
 
 app.put('/api/todo/:id', function (req, res) {
-    if (!db) {
-        initDb(function (err) {});
-    }
-    if (db) {
-        db.collection('todos').updateOne({
-            _id: new ObjectID(req.params.id)
-        }, {
-            $set: {
-                text: req.body.text
-            }
-        }, function (err, result) {
-            if (err) throw err;
-            res.send(result);
-        });
-    }
+    db.collection('todos').updateOne({
+        _id: new ObjectID(req.params.id)
+    }, {
+        $set: {
+            text: req.body.text
+        }
+    }, function (err, result) {
+        if (err) throw err;
+        res.send(result);
+    });
 });
 
 app.delete('/api/todo/:id', function (req, res) {
-    if (!db) {
-        initDb(function (err) {});
-    }
-    if (db) {
-        db.collection('todos').removeOne({
-            _id: new ObjectID(req.params.id)
-        }, function (err, result) {
-            if (err) throw err;
-            res.send(result);
-        });
-    }
+    db.collection('todos').removeOne({
+        _id: new ObjectID(req.params.id)
+    }, function (err, result) {
+        if (err) throw err;
+        res.send(result);
+    });
 });
 
 app.use(function (err, req, res, next) {

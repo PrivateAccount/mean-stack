@@ -3,6 +3,12 @@ body {
     padding: 0;
     color: #777;
 }
+div.header {
+    background-color: #fcfcff;
+}
+div.footer {
+    background-color: #dfdfdf;
+}
 .table-bordered>thead>tr>th,
 .table-bordered>tbody>tr>th,
 .table-bordered>tfoot>tr>th {

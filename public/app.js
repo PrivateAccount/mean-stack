@@ -3,6 +3,11 @@ var myApp = angular.module('myApp', []);
 function mainController($scope, $http) {
 
     $scope.formData = {};
+    $scope.layout = {
+        list: '../templates/list.html',
+        form: '../templates/form.html',
+        stats: '../templates/stats.html',
+    };
 
     $scope.getTodos = function () {
         $http.get('/api/todos')
