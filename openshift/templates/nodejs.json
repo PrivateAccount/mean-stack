@@ -10,7 +10,7 @@
       "iconClass": "icon-nodejs",
       "openshift.io/long-description": "This template defines resources needed to develop a NodeJS application, including a build configuration and application deployment configuration.  It does not include a database.",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
-      "openshift.io/documentation-url": "https://github.com/PrivateAccount/nodejs",
+      "openshift.io/documentation-url": "https://github.com/PrivateAccount/mean-stack",
       "openshift.io/support-url": "https://access.redhat.com",
       "template.openshift.io/bindable": "false"
     }
