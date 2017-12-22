@@ -60,7 +60,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/templates/:name', function (req, res) {
-    res.sendFile('templates/' + req.params.name + '.html');
+    res.sendFile(__dirname + '/templates/' + req.params.name + '.html');
 });
 
 app.get('/api/todos', function (req, res) {
