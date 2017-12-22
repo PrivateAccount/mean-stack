@@ -16,16 +16,16 @@
   },
   "scripts": {
     "start": "node server.js",
-	"test": ""
+    "test": ""
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/PrivateAccount/nodejs.git"
+    "url": "https://github.com/PrivateAccount/mean-stack.git"
   },
   "author": "Steve Speicher <sspeiche@gmail.com>",
   "license": "CC-BY-1.0",
   "bugs": {
-    "url": "https://github.com/PrivateAccount/nodejs/issues"
+    "url": "https://github.com/PrivateAccount/mean-stack/issues"
   },
-  "homepage": "https://github.com/PrivateAccount/nodejs"
+  "homepage": "https://github.com/PrivateAccount/mean-stack"
 }
