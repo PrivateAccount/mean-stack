@@ -59,6 +59,10 @@ app.get('/', function (req, res) {
     res.sendFile('index.html');
 });
 
+app.get('/templates/:name', function (req, res) {
+    res.sendFile('templates/' + req.params.name + '.html');
+});
+
 app.get('/api/todos', function (req, res) {
     db.collection('todos', function (err, collection) {
         collection.find().toArray(function (err, result) {

@@ -4,9 +4,9 @@ function mainController($scope, $http) {
 
     $scope.formData = {};
     $scope.layout = {
-        list: '../templates/list.html',
-        form: '../templates/form.html',
-        stats: '../templates/stats.html',
+        list: '../templates/list',
+        form: '../templates/form',
+        stats: '../templates/stats',
     };
 
     $scope.getTodos = function () {
