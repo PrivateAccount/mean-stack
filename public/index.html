@@ -35,7 +35,7 @@
                         <td>{{ todo._id }}</td>
                         <td>{{ todo.ip }}</td>
                         <td>{{ todo.text }}</td>
-                        <td>{{ todo.date | date: "dd.MM.yyyy" }}</td>
+                        <td>{{ todo.date | date: "dd.MM.yyyy HH:mm:ss" }}</td>
                         <td>{{ todo.$$hashKey }}</td>
                         <td>
                             <button class="btn btn-warning btn-xs action" ng-click="editTodo(todo._id)">Edit</button>
