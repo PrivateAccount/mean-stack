@@ -4,7 +4,7 @@
 
 Project directory structure:
 
-	nodejs-ex
+	nodejs-app
 	├── openshift
 	│   └── templates
 	│       ├── nodejs.json
