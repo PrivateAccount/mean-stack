@@ -92,7 +92,7 @@ app.get('/api/todo/:id', function (req, res) {
     }
 });
 
-app.post('/api/todos', function (req, res) {
+app.post('/api/todo', function (req, res) {
     if (!db) {
         initDb(function (err) {});
     }

@@ -13,7 +13,7 @@ function mainController($scope, $http) {
     };
 
     $scope.createTodo = function () {
-        $http.post('/api/todos', $scope.formData)
+        $http.post('/api/todo', $scope.formData)
             .success(function () {
                 $scope.formData = {};
                 $scope.getTodos();
