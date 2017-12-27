@@ -42,17 +42,13 @@ var db = null;
 var dbDetails = new Object();
 var ObjectID = require('mongodb').ObjectID;
 
-var initDb = function () {
-    mongodb.connect(mongoURL, function (err, conn) {
-        db = conn;
-        dbDetails.databaseName = db.databaseName;
-        dbDetails.url = mongoURLLabel;
-        dbDetails.type = 'MongoDB';
-        console.log('Connected to MongoDB at: %s', mongoURL);
-    });
-};
-
-initDb();
+mongodb.connect(mongoURL, function (err, conn) {
+    db = conn;
+    dbDetails.databaseName = db.databaseName;
+    dbDetails.url = mongoURLLabel;
+    dbDetails.type = 'MongoDB';
+    console.log('Connected to MongoDB at: %s', mongoURL);
+});
 
 app.get('/', function (req, res) {
     res.sendFile('index.html');
