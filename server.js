@@ -1,6 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var mongodb = require('mongodb');
 
 Object.assign = require('object-assign');
 
@@ -42,7 +43,6 @@ var dbDetails = new Object();
 var ObjectID = require('mongodb').ObjectID;
 
 var initDb = function () {
-    var mongodb = require('mongodb');
     mongodb.connect(mongoURL, function (err, conn) {
         db = conn;
         dbDetails.databaseName = db.databaseName;

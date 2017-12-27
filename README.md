@@ -10,13 +10,11 @@ Project directory structure:
 	│       ├── nodejs.json
 	│       ├── nodejs-mongodb.json
 	│       └── nodejs-mongodb-persistent.json
+	├── public
+	│   ├── index.html
+	│   ├── app.js
+	│   ├── app.css
+	│   └── favicon.png
 	├── package.json
-	├── README.md
 	├── server.js
-	├── tests
-	│   └── app_test.js
-	└── public
-	    ├── index.html
-	    ├── app.js
-	    ├── app.css
-	    └── favicon.png
+	└── README.md
