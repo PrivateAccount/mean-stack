@@ -4,9 +4,36 @@ function mainController($scope, $http) {
 
     $scope.formData = {};
     $scope.layout = {
+        index: '../templates/index',
+        login: '../templates/login',
+        admin: '../templates/admin',
         list: '../templates/list',
         form: '../templates/form',
         stats: '../templates/stats',
+    };
+
+    $scope.getIndex = function () {
+        $http.get('/templates/index')
+            .success(function (data) {
+                $scope.mainContent = data;
+            })
+            .error(function (data) {});
+    };
+
+    $scope.showLoginForm = function () {
+        $http.get('/templates/login')
+            .success(function (data) {
+                $scope.mainContent = data;
+            })
+            .error(function (data) {});
+    };
+
+    $scope.showAdminPanel = function () {
+        $http.get('/templates/admin')
+            .success(function (data) {
+                $scope.mainContent = data;
+            })
+            .error(function (data) {});
     };
 
     $scope.getTodos = function () {
@@ -51,6 +78,6 @@ function mainController($scope, $http) {
             .error(function () {});
     };
 
-    $scope.getTodos();
+    $scope.getIndex();
 
 };
