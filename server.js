@@ -61,7 +61,6 @@ app.get('/favicon.ico', function (req, res) {
 });
 
 app.get('/:name', function (req, res) {
-    res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify({
         content: fs.readFileSync(__dirname + '/templates/' + req.params.name + '.html', 'utf8')
     }));
