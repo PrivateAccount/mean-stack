@@ -54,7 +54,7 @@ app.get('/', function (req, res) {
     res.sendFile('index.html');
 });
 
-app.get('/templates/:name', function (req, res) {
+app.get('/:name', function (req, res) {
     res.sendFile(__dirname + '/templates/' + req.params.name + '.html');
 });
 
