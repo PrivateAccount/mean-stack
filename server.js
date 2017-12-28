@@ -57,7 +57,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/favicon.ico', function (req, res) {
-    res.sendFile('favicon.png');
+    res.sendFile(__dirname + '/public/favicon.png');
 });
 
 app.get('/:name', function (req, res) {
