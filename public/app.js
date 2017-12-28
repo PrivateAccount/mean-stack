@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp', ['ngSanitize']);
 
-function mainController($scope, $http) {
+function mainController($scope, $http, $sce) {
 
     $scope.formData = {};
     $scope.layout = {
@@ -15,7 +15,7 @@ function mainController($scope, $http) {
     $scope.getIndex = function () {
         $http.get('/templates/index')
             .success(function (data) {
-                $scope.mainContent = data;
+                $scope.mainContent = $sce.trustAsHtml(data);
             })
             .error(function (data) {});
     };
@@ -23,7 +23,7 @@ function mainController($scope, $http) {
     $scope.showLoginForm = function () {
         $http.get('/templates/login')
             .success(function (data) {
-                $scope.mainContent = data;
+                $scope.mainContent = $sce.trustAsHtml(data);
             })
             .error(function (data) {});
     };
@@ -31,7 +31,7 @@ function mainController($scope, $http) {
     $scope.showAdminPanel = function () {
         $http.get('/templates/admin')
             .success(function (data) {
-                $scope.mainContent = data;
+                $scope.mainContent = $sce.trustAsHtml(data);
             })
             .error(function (data) {});
     };
