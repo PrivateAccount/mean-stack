@@ -61,9 +61,9 @@ app.get('/favicon.ico', function (req, res) {
 });
 
 app.get('/:name', function (req, res) {
-    res.send(JSON.stringify({
+    res.json({
         content: fs.readFileSync(__dirname + '/templates/' + req.params.name + '.html', 'utf8')
-    }));
+    });
 });
 
 app.get('/api/todos', function (req, res) {
