@@ -26,6 +26,3 @@ div.footer {
 button.action {
     width: 50px;
 }
-div#main-content {
-    transition: opacity 1s ease-out;
-}

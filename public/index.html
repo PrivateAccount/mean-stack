@@ -14,41 +14,33 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-    <link href="css/creative.min.css" rel="stylesheet">
     <link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-    <link href="dist/css/sb-admin-2.css" rel="stylesheet">
     <link href="vendor/morrisjs/morris.css" rel="stylesheet">
     <link href="app.css" rel="stylesheet">
     <link href="favicon.png" rel="shortcut icon" type="image/png">
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.min.js"></script>
-    <script src="app.js"></script>
 </head>
 
 <body id="page-top" ng-controller="mainController">
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#" ng-click="getIndexPage()">MEAN Stack App</a>
+            <a class="navbar-brand js-scroll-trigger" href="#index" ng-click="getIndexPage()">MEAN Stack App</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#" ng-click="showLoginForm()">Login</a>
+                        <a class="nav-link js-scroll-trigger" href="#login" ng-click="showLoginForm()">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#" ng-click="showRegisterForm()">Register</a>
+                        <a class="nav-link js-scroll-trigger" href="#register" ng-click="showRegisterForm()">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/blog">Blog</a>
+                        <a class="nav-link js-scroll-trigger" href="#blog" ng-click="getBlogPage()">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/contact">Contact</a>
+                        <a class="nav-link js-scroll-trigger" href="#contact" ng-click="getContactPage()">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -63,10 +55,15 @@
         </div>
     </header>
 
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.min.js"></script>
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
     <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="js/creative.min.js"></script>
+    <script src="app.js"></script>
 
 </body>
 
