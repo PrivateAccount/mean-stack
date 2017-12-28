@@ -5,27 +5,21 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
     function ($scope, $http, $sce) {
 
         $scope.getIndex = function () {
-            $http.get('/index')
-                .success(function (data) {
-                    $scope.mainContent = $sce.trustAsHtml(data);
-                })
-                .error(function (data) {});
+            $http.get('/index').then(function (response) {
+                $scope.mainContent = $sce.trustAsHtml(response);
+            });
         };
 
         $scope.showLoginForm = function () {
-            $http.get('/login')
-                .success(function (data) {
-                    $scope.mainContent = $sce.trustAsHtml(data);
-                })
-                .error(function (data) {});
+            $http.get('/login').then(function (response) {
+                $scope.mainContent = $sce.trustAsHtml(response);
+            });
         };
 
         $scope.showAdminPanel = function () {
-            $http.get('/admin')
-                .success(function (data) {
-                    $scope.mainContent = $sce.trustAsHtml(data);
-                })
-                .error(function (data) {});
+            $http.get('/admin').then(function (response) {
+                $scope.mainContent = $sce.trustAsHtml(response);
+            });
         };
 
         $scope.getIndex();
