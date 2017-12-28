@@ -6,20 +6,19 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
 
         $scope.getIndex = function () {
             $http.get('/index').then(function (response) {
-                console.log(response);
-                $scope.mainContent = $sce.trustAsHtml(response.content);
+                $scope.mainContent = $sce.trustAsHtml(response.data.content);
             });
         };
 
         $scope.showLoginForm = function () {
             $http.get('/login').then(function (response) {
-                $scope.mainContent = $sce.trustAsHtml(response);
+                $scope.mainContent = $sce.trustAsHtml(response.data.content);
             });
         };
 
         $scope.showAdminPanel = function () {
             $http.get('/admin').then(function (response) {
-                $scope.mainContent = $sce.trustAsHtml(response);
+                $scope.mainContent = $sce.trustAsHtml(response.data.content);
             });
         };
 
