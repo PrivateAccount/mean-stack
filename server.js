@@ -56,6 +56,10 @@ app.get('/', function (req, res) {
     res.sendFile('index.html');
 });
 
+app.get('/favicon.ico', function (req, res) {
+    res.sendFile('favicon.png');
+});
+
 app.get('/:name', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify({
