@@ -6,7 +6,8 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
 
         $scope.getIndex = function () {
             $http.get('/index').then(function (response) {
-                $scope.mainContent = $sce.trustAsHtml(response);
+                console.log(response);
+                $scope.mainContent = $sce.trustAsHtml(response.content);
             });
         };
 

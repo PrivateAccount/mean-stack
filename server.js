@@ -50,12 +50,18 @@ mongodb.connect(mongoURL, function (err, conn) {
     console.log('Connected to MongoDB at: %s', mongoURL);
 });
 
+var fs = require("fs");
+
 app.get('/', function (req, res) {
     res.sendFile('index.html');
 });
 
 app.get('/:name', function (req, res) {
-    res.sendFile(__dirname + '/templates/' + req.params.name + '.html');
+    var fileContent = fs.readFileSync(__dirname + '/templates/' + req.params.name + '.html', 'utf8');
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({
+        content: fileContent
+    }));
 });
 
 app.get('/api/todos', function (req, res) {
