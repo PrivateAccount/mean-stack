@@ -57,10 +57,9 @@ app.get('/', function (req, res) {
 });
 
 app.get('/:name', function (req, res) {
-    var fileContent = fs.readFileSync(__dirname + '/templates/' + req.params.name + '.html', 'utf8');
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify({
-        content: fileContent
+        content: fs.readFileSync(__dirname + '/templates/' + req.params.name + '.html', 'utf8')
     }));
 });
 
