@@ -63,6 +63,7 @@ app.get('/:name', function (req, res) {
 });
 
 app.post('/login', function (req, res) {
+    console.log('INFO: POST /login');
     res.json({
         user: {
             id: 1,
@@ -75,6 +76,7 @@ app.post('/login', function (req, res) {
 });
 
 app.post('/register', function (req, res) {
+    console.log('INFO: POST /register');
     db.collection('users').insertOne({
         login: req.body.login,
         email: req.body.email,
