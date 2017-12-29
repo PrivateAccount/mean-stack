@@ -44,10 +44,16 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
 
         $scope.doLogin = function () {
             console.log('login:', $scope.formData);
+            $http.post('/login', $scope.formData).then(function (response) {
+                $scope.mainContent = $sce.trustAsHtml(response.data.message);
+            });
         };
 
         $scope.doRegister = function () {
             console.log('register:', $scope.formData);
+            $http.post('/register', $scope.formData).then(function (response) {
+                $scope.mainContent = $sce.trustAsHtml(response.data.message);
+            });
         };
 
         $scope.doLoginX = function () {

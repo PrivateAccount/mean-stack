@@ -62,6 +62,40 @@ app.get('/:name', function (req, res) {
     });
 });
 
+app.post('/login', function (req, res) {
+    res.json({
+        user: {
+            id: 1,
+            login: 'admin',
+            role: 1
+        },
+        status: 0,
+        message: 'Login successful.'
+    });
+});
+
+app.post('/register', function (req, res) {
+    db.collection('users').insertOne({
+        login: req.body.login,
+        email: req.body.email,
+        password: req.body.password,
+        role: 1,
+        ip: req.ip,
+        date: Date.now()
+    }, function (err, result) {
+        res.json({
+            result: result,
+            user: {
+                login: req.body.login,
+                email: req.body.email,
+                role: 1
+            },
+            status: 0,
+            message: 'Register successful.'
+        });
+    });
+});
+
 app.get('/api/todos', function (req, res) {
     db.collection('todos', function (err, collection) {
         collection.find().toArray(function (err, result) {
