@@ -54,6 +54,10 @@ app.get('/', function (req, res) {
     res.sendFile('index.html');
 });
 
+app.get('/templates/:name', function (req, res) {
+    res.sendFile(__dirname + '/templates/' + req.params.name);
+});
+
 app.post('/login', function (req, res) {
     db.collection('users', function (err, collection) {
         collection.findOne({
