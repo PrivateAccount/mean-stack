@@ -7,7 +7,7 @@
                 </div>
                 <hr>
                 <div class="panel-body">
-                    <form role="form">
+                    <form role="form" method="post" ng-submit="doRegister()">
                         <fieldset>
                             <div class="form-group">
                                 <label>Login:</label>
@@ -22,7 +22,7 @@
                                 <input class="form-control" name="password" type="password" ng-model="formData.password" value="">
                             </div>
                             <hr>
-                            <button href="#" class="btn btn-lg btn-primary btn-block" ng-click="doRegister()">Register</button>
+                            <button href="#" class="btn btn-lg btn-primary btn-block" ng-click="doRegisterX()">Register</button>
                         </fieldset>
                     </form>
                 </div>

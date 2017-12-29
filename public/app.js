@@ -50,6 +50,14 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
             console.log('register:', $scope.formData);
         };
 
+        $scope.doLoginX = function () {
+            console.log('login x:', $scope.formData);
+        };
+
+        $scope.doRegisterX = function () {
+            console.log('register x:', $scope.formData);
+        };
+
         $scope.getIndexPage();
 
     }
