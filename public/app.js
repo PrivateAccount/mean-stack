@@ -13,6 +13,7 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
             blog: '../templates/blog.html',
             admin: '../templates/admin.html',
             users: '../templates/users.html',
+            edit: '../templates/edit.html',
             pending: '../templates/pending.html',
         };
         $scope.formData = {};
@@ -41,6 +42,30 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
             $scope.action = 'pending';
             $http.get('/users').then(function (response) {
                 $scope.usersList = response.data;
+                $scope.action = 'users';
+            });
+        };
+
+        $scope.editUser = function (id) {
+            $scope.action = 'pending';
+            $http.get('/user/' + id).then(function (response) {
+                $scope.formData = response.data;
+                $scope.action = 'edit';
+            });
+        };
+
+        $scope.updateUser = function (id) {
+            $scope.action = 'pending';
+            $http.put('/user/' + id, $scope.formData).then(function (response) {
+                console.log(response);
+                $scope.action = 'users';
+            });
+        };
+
+        $scope.deleteUser = function (id) {
+            $scope.action = 'pending';
+            $http.delete('/user/' + id).then(function (response) {
+                console.log(response);
                 $scope.action = 'users';
             });
         };

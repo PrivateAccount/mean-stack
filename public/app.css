@@ -31,6 +31,9 @@ button.btn {
     border: none;
     border-radius: 5px;
 }
+div.my-panel {
+    max-width: 500px;
+}
 .my-screen-centered {
     position: fixed;
     top: 50%;
