@@ -51,44 +51,19 @@
 
     <header class="masthead text-center text-white d-flex">
         <div class="container my-auto">
-            <div class="row" id="main-content">
+            <div class="row">
                 <div ng-bind-html="mainContent"></div>
             </div>
         </div>
     </header>
 
-    <div class="my-screen-centered">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Rejestracja konta</h3>
-                    </div>
-                    <hr>
-                    <div class="panel-body">
-                        <form role="form">
-                            <fieldset>
-                                <div class="form-group">
-                                    <label>Login:</label>
-                                    <input class="form-control" name="login" type="login" ng-model="formData.login" autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <label>E-mail:</label>
-                                    <input class="form-control" name="email" type="email" ng-model="formData.email">
-                                </div>
-                                <div class="form-group">
-                                    <label>Password:</label>
-                                    <input class="form-control" name="password" type="password" ng-model="formData.password" value="">
-                                </div>
-                                <hr>
-                                <button class="btn btn-lg btn-primary btn-block" ng-click="doRegister()">Register</button>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div ng-if="action == 'index'" ng-include="templates/index.html"></div>
+    <div ng-if="action == 'login'" ng-include="templates/login.html"></div>
+    <div ng-if="action == 'register'" ng-include="templates/register.html"></div>
+    <div ng-if="action == 'contact'" ng-include="templates/contact.html"></div>
+    <div ng-if="action == 'blog'" ng-include="templates/blog.html"></div>
+    <div ng-if="action == 'admin'" ng-include="templates/admin.html"></div>
+    <div ng-if="action == 'pending'" ng-include="templates/pending.html"></div>
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

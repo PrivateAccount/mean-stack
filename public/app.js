@@ -4,64 +4,53 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
 
     function ($scope, $http, $sce) {
 
+        $scope.action = null;
         $scope.formData = {};
 
         $scope.getIndexPage = function () {
-            $http.get('/index').then(function (response) {
-                $scope.mainContent = $sce.trustAsHtml(response.data.content);
-            });
+            $scope.action = 'index';
         };
 
         $scope.showLoginForm = function () {
-            $http.get('/login').then(function (response) {
-                $scope.mainContent = $sce.trustAsHtml(response.data.content);
-            });
+            $scope.action = 'login';
         };
 
         $scope.showRegisterForm = function () {
-            $http.get('/register').then(function (response) {
-                $scope.mainContent = $sce.trustAsHtml(response.data.content);
-            });
+            $scope.action = 'register';
         };
 
         $scope.showAdminPanel = function () {
-            $http.get('/admin').then(function (response) {
-                $scope.mainContent = $sce.trustAsHtml(response.data.content);
-            });
+            $scope.action = 'admin';
         };
 
         $scope.getBlogPage = function () {
-            $http.get('/blog').then(function (response) {
-                $scope.mainContent = $sce.trustAsHtml(response.data.content);
-            });
+            $scope.action = 'blog';
         };
 
         $scope.getContactPage = function () {
-            $http.get('/contact').then(function (response) {
-                $scope.mainContent = $sce.trustAsHtml(response.data.content);
-            });
+            $scope.action = 'contact';
         };
 
         $scope.doLogin = function () {
-            console.log('login:', $scope.formData);
+            $scope.action = 'pending';
             $http.post('/login', $scope.formData).then(function (response) {
-                $scope.mainContent = $sce.trustAsHtml(response.data.message);
+                if (response.data.success) {
+                    $scope.action = 'admin';
+                } else {
+                    $scope.action = 'login';
+                }
             });
         };
 
         $scope.doRegister = function () {
-            console.log('register:', $scope.formData);
+            $scope.action = 'pending';
             $http.post('/register', $scope.formData).then(function (response) {
-                $scope.mainContent = $sce.trustAsHtml(response.data.message);
+                if (response.data.success) {
+                    $scope.action = 'admin';
+                } else {
+                    $scope.action = 'register';
+                }
             });
-        };
-
-        $scope.doLoginX = function () {
-            console.log('login x:', $scope.formData);
-        };
-
-        $scope.doRegisterX = function () {
-            console.log('register x:', $scope.formData);
         };
 
         $scope.getIndexPage();

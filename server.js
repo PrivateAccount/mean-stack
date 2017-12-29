@@ -50,33 +50,23 @@ mongodb.connect(mongoURL, function (err, conn) {
     console.log('Connected to MongoDB at: %s', mongoURL);
 });
 
-var fs = require("fs");
-
 app.get('/', function (req, res) {
     res.sendFile('index.html');
 });
 
-app.get('/:name', function (req, res) {
-    res.json({
-        content: fs.readFileSync(__dirname + '/templates/' + req.params.name + '.html', 'utf8')
-    });
-});
-
 app.post('/login', function (req, res) {
-    console.log('INFO: POST /login');
     res.json({
         user: {
             id: 1,
             login: 'admin',
             role: 1
         },
-        status: 0,
+        success: 1,
         message: 'Login successful.'
     });
 });
 
 app.post('/register', function (req, res) {
-    console.log('INFO: POST /register');
     db.collection('users').insertOne({
         login: req.body.login,
         email: req.body.email,
@@ -92,7 +82,7 @@ app.post('/register', function (req, res) {
                 email: req.body.email,
                 role: 1
             },
-            status: 0,
+            success: 1,
             message: 'Register successful.'
         });
     });
