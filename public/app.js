@@ -58,7 +58,7 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
             $scope.action = 'pending';
             $http.put('/user/' + id, $scope.formData).then(function (response) {
                 console.log(response);
-                $scope.action = 'users';
+                $scope.showUsersList();
             });
         };
 
@@ -66,7 +66,7 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
             $scope.action = 'pending';
             $http.delete('/user/' + id).then(function (response) {
                 console.log(response);
-                $scope.action = 'users';
+                $scope.showUsersList();
             });
         };
 
