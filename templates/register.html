@@ -1,27 +1,33 @@
-<div class="panel panel-default my-panel">
-    <div class="panel-heading">
-        <h3 class="panel-title">Rejestracja użytkownika</h3>
-    </div>
-    <hr>
-    <div class="panel-body">
-        <form role="form">
-            <fieldset>
-                <div class="form-group">
-                    <label>E-mail:</label>
-                    <input class="form-control" name="email" type="email" ng-model="formData.email">
+<div class="my-screen-centered">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Rejestracja użytkownika</h3>
                 </div>
-                <div class="form-group">
-                    <label>Login:</label>
-                    <input class="form-control" name="login" type="text" ng-model="formData.login">
-                </div>
-                <div class="form-group">
-                    <label>Password:</label>
-                    <input class="form-control" name="password" type="password" ng-model="formData.password">
-                </div>
-                <input class="form-control" name="role" type="hidden" ng-model="formData.role" value="2">
                 <hr>
-                <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="doRegister()">Register</button>
-            </fieldset>
-        </form>
+                <div class="panel-body">
+                    <form role="form">
+                        <fieldset>
+                            <div class="form-group">
+                                <label>E-mail:</label>
+                                <input class="form-control" name="email" type="email" ng-model="formData.email">
+                            </div>
+                            <div class="form-group">
+                                <label>Login:</label>
+                                <input class="form-control" name="login" type="text" ng-model="formData.login">
+                            </div>
+                            <div class="form-group">
+                                <label>Password:</label>
+                                <input class="form-control" name="password" type="password" ng-model="formData.password">
+                            </div>
+                            <input class="form-control" name="role" type="hidden" ng-model="formData.role" value="2">
+                            <hr>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="doRegister()">Register</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

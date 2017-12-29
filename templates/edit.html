@@ -1,33 +1,39 @@
-<div class="panel panel-default my-panel">
-    <div class="panel-heading">
-        <h3 class="panel-title">Edycja użytkownika</h3>
-    </div>
-    <hr>
-    <div class="panel-body">
-        <form role="form">
-            <fieldset>
-                <div class="form-group">
-                    <label>E-mail:</label>
-                    <input class="form-control" name="email" type="email" ng-model="formData.email">
-                </div>
-                <div class="form-group">
-                    <label>Login:</label>
-                    <input class="form-control" name="login" type="text" ng-model="formData.login">
-                </div>
-                <div class="form-group">
-                    <label>Role:</label>
-                    <select class="form-control" name="role" ng-model="formData.role">
-                        <option value="1">Administrator</option>
-                        <option value="2">Użytkownik</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Password:</label>
-                    <input class="form-control" name="password" type="password" ng-model="formData.password">
+<div class="my-screen-centered">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Edycja Użytkownika</h3>
                 </div>
                 <hr>
-                <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="updateUser(formData._id)">Save</button>
-            </fieldset>
-        </form>
+                <div class="panel-body">
+                    <form role="form">
+                        <fieldset>
+                            <div class="form-group">
+                                <label>E-mail:</label>
+                                <input class="form-control" name="email" type="email" ng-model="formData.email">
+                            </div>
+                            <div class="form-group">
+                                <label>Login:</label>
+                                <input class="form-control" name="login" type="text" ng-model="formData.login">
+                            </div>
+                            <div class="form-group">
+                                <label>Role:</label>
+                                <select class="form-control" name="role" ng-model="formData.role">
+                                    <option value="1">Administrator</option>
+                                    <option value="2">Użytkownik</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Password:</label>
+                                <input class="form-control" name="password" type="password" ng-model="formData.password">
+                            </div>
+                            <hr>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="updateUser(formData._id)">Save</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
