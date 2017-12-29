@@ -9,12 +9,15 @@ div.header {
 div.footer {
     background-color: #fff;
 }
+table {
+    width: 100%;
+}
 .table-bordered>thead>tr>th,
 .table-bordered>tbody>tr>th,
 .table-bordered>tfoot>tr>th {
     font-size: 1.0em;
     padding: 15px 8px;
-    background-color: #def;
+    vertical-align: middle;
 }
 .table-bordered>thead>tr>td,
 .table-bordered>tbody>tr>td,
@@ -23,8 +26,10 @@ div.footer {
     padding: 8px 8px;
     vertical-align: middle;
 }
-button.action {
-    width: 50px;
+button.btn {
+    text-transform: inherit;
+    border: none;
+    border-radius: 5px;
 }
 .my-screen-centered {
     position: fixed;
@@ -32,4 +37,7 @@ button.action {
     left: 50%;
     width: 400px;
     transform: translate(-50%, -50%);
+}
+div.full-size div.ng-scope {
+    width: 100%;
 }

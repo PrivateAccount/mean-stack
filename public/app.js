@@ -24,10 +24,12 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
         };
 
         $scope.showLoginForm = function () {
+            $scope.formData = {};
             $scope.action = 'login';
         };
 
         $scope.showRegisterForm = function () {
+            $scope.formData = {};
             $scope.action = 'register';
         };
 

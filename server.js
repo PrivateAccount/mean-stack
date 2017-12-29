@@ -94,8 +94,8 @@ app.get('/users', function (req, res) {
     });
 });
 
-app.get('/api/todo/:id', function (req, res) {
-    db.collection('todos', function (err, collection) {
+app.get('/user/:id', function (req, res) {
+    db.collection('users', function (err, collection) {
         collection.findOne({
             _id: new ObjectID(req.params.id)
         }, function (err, result) {
@@ -104,22 +104,15 @@ app.get('/api/todo/:id', function (req, res) {
     });
 });
 
-app.post('/api/todo', function (req, res) {
-    db.collection('todos').insertOne({
-        text: req.body.text,
-        ip: req.ip,
-        date: Date.now()
-    }, function (err, result) {
-        res.send(result);
-    });
-});
-
-app.put('/api/todo/:id', function (req, res) {
-    db.collection('todos').updateOne({
+app.put('/user/:id', function (req, res) {
+    db.collection('users').updateOne({
         _id: new ObjectID(req.params.id)
     }, {
         $set: {
-            text: req.body.text,
+            login: req.body.login,
+            email: req.body.email,
+            password: req.body.password,
+            role: req.body.role,
             ip: req.ip,
             date: Date.now()
         }
@@ -128,8 +121,8 @@ app.put('/api/todo/:id', function (req, res) {
     });
 });
 
-app.delete('/api/todo/:id', function (req, res) {
-    db.collection('todos').removeOne({
+app.delete('/user/:id', function (req, res) {
+    db.collection('users').removeOne({
         _id: new ObjectID(req.params.id)
     }, function (err, result) {
         res.send(result);
