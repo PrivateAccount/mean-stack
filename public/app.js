@@ -34,6 +34,7 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
         $scope.doLogin = function () {
             $scope.action = 'pending';
             $http.post('/login', $scope.formData).then(function (response) {
+                console.log(response);
                 if (response.data.success) {
                     $scope.action = 'admin';
                 } else {
@@ -45,6 +46,7 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
         $scope.doRegister = function () {
             $scope.action = 'pending';
             $http.post('/register', $scope.formData).then(function (response) {
+                console.log(response);
                 if (response.data.success) {
                     $scope.action = 'admin';
                 } else {

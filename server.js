@@ -55,14 +55,17 @@ app.get('/', function (req, res) {
 });
 
 app.post('/login', function (req, res) {
-    res.json({
-        user: {
-            id: 1,
-            login: 'admin',
-            role: 1
-        },
-        success: 1,
-        message: 'Login successful.'
+    db.collection('users', function (err, collection) {
+        collection.findOne({
+            email: req.body.email,
+            password: req.body.password
+        }, function (err, result) {
+            res.json({
+                result: result,
+                success: 1,
+                message: 'Login successful.'
+            });
+        });
     });
 });
 
