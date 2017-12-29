@@ -12,9 +12,12 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
             contact: '../templates/contact.html',
             blog: '../templates/blog.html',
             admin: '../templates/admin.html',
+            users: '../templates/users.html',
             pending: '../templates/pending.html',
         };
         $scope.formData = {};
+        $scope.currentUser = {};
+        $scope.usersList = [];
 
         $scope.getIndexPage = function () {
             $scope.action = 'index';
@@ -32,6 +35,14 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
             $scope.action = 'admin';
         };
 
+        $scope.showUsersList = function () {
+            $scope.action = 'pending';
+            $http.get('/users').then(function (response) {
+                $scope.usersList = response.data;
+                $scope.action = 'users';
+            });
+        };
+
         $scope.getBlogPage = function () {
             $scope.action = 'blog';
         };
@@ -43,8 +54,9 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
         $scope.doLogin = function () {
             $scope.action = 'pending';
             $http.post('/login', $scope.formData).then(function (response) {
+                $scope.currentUser = response.data.result;
                 console.log(response);
-                if (response.data.success) {
+                if (response.data.result) {
                     $scope.action = 'admin';
                 } else {
                     $scope.action = 'login';
@@ -55,12 +67,9 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
         $scope.doRegister = function () {
             $scope.action = 'pending';
             $http.post('/register', $scope.formData).then(function (response) {
+                $scope.currentUser = {};
+                $scope.action = 'index';
                 console.log(response);
-                if (response.data.success) {
-                    $scope.action = 'admin';
-                } else {
-                    $scope.action = 'register';
-                }
             });
         };
 

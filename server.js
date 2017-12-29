@@ -66,8 +66,6 @@ app.post('/login', function (req, res) {
         }, function (err, result) {
             res.json({
                 result: result,
-                success: 1,
-                message: 'Login successful.'
             });
         });
     });
@@ -78,25 +76,18 @@ app.post('/register', function (req, res) {
         login: req.body.login,
         email: req.body.email,
         password: req.body.password,
-        role: 1,
+        role: req.body.role,
         ip: req.ip,
         date: Date.now()
     }, function (err, result) {
         res.json({
             result: result,
-            user: {
-                login: req.body.login,
-                email: req.body.email,
-                role: 1
-            },
-            success: 1,
-            message: 'Register successful.'
         });
     });
 });
 
-app.get('/api/todos', function (req, res) {
-    db.collection('todos', function (err, collection) {
+app.get('/users', function (req, res) {
+    db.collection('users', function (err, collection) {
         collection.find().toArray(function (err, result) {
             res.send(result);
         });

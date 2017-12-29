@@ -52,18 +52,17 @@
     <header class="masthead text-center text-white d-flex">
         <div class="container my-auto">
             <div class="row">
-                <div ng-bind-html="mainContent"></div>
+                <div ng-if="action == 'index'" ng-include="layout.index"></div>
+                <div ng-if="action == 'login'" ng-include="layout.login"></div>
+                <div ng-if="action == 'register'" ng-include="layout.register"></div>
+                <div ng-if="action == 'contact'" ng-include="layout.contact"></div>
+                <div ng-if="action == 'blog'" ng-include="layout.blog"></div>
+                <div ng-if="action == 'admin'" ng-include="layout.admin"></div>
+                <div ng-if="action == 'users'" ng-include="layout.users"></div>
+                <div ng-if="action == 'pending'" ng-include="layout.pending"></div>
             </div>
         </div>
     </header>
-
-    <div ng-if="action == 'index'" ng-include="layout.index"></div>
-    <div ng-if="action == 'login'" ng-include="layout.login"></div>
-    <div ng-if="action == 'register'" ng-include="layout.register"></div>
-    <div ng-if="action == 'contact'" ng-include="layout.contact"></div>
-    <div ng-if="action == 'blog'" ng-include="layout.blog"></div>
-    <div ng-if="action == 'admin'" ng-include="layout.admin"></div>
-    <div ng-if="action == 'pending'" ng-include="layout.pending"></div>
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

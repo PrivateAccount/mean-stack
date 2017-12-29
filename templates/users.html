@@ -1,0 +1,37 @@
+<div class="text-center">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Lista użytkowników</h3>
+                </div>
+                <hr>
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th>Id</th>
+                            <th>IP</th>
+                            <th>Login</th>
+                            <th>Email</th>
+                            <th>Registered</th>
+                            <th colspan="2" class="text-center">Action</th>
+                        </tr>
+                        <tr ng-repeat="user in usersList">
+                            <td>{{ user._id }}</td>
+                            <td>{{ user.ip }}</td>
+                            <td>{{ user.login }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.date | date: "dd.MM.yyyy HH:mm:ss" }}</td>
+                            <td>
+                                <button class="btn btn-warning btn-xs action" ng-click="editUser(user._id)">Edit</button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger btn-xs action" ng-click="deleteUser(user._id)">Delete</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
