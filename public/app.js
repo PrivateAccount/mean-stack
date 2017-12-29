@@ -4,6 +4,8 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
 
     function ($scope, $http, $sce) {
 
+        $scope.formData = {};
+
         $scope.getIndexPage = function () {
             $http.get('/index').then(function (response) {
                 $scope.mainContent = $sce.trustAsHtml(response.data.content);
@@ -38,6 +40,14 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
             $http.get('/contact').then(function (response) {
                 $scope.mainContent = $sce.trustAsHtml(response.data.content);
             });
+        };
+
+        $scope.doLogin = function () {
+            console.log('login:', $scope.formData);
+        };
+
+        $scope.doRegister = function () {
+            console.log('register:', $scope.formData);
         };
 
         $scope.getIndexPage();

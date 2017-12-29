@@ -56,10 +56,6 @@ app.get('/', function (req, res) {
     res.sendFile('index.html');
 });
 
-app.get('/favicon.ico', function (req, res) {
-    res.sendFile(__dirname + '/public/favicon.png');
-});
-
 app.get('/:name', function (req, res) {
     res.json({
         content: fs.readFileSync(__dirname + '/templates/' + req.params.name + '.html', 'utf8')
