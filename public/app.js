@@ -5,6 +5,15 @@ var myApp = angular.module('myApp', ['ngSanitize']).controller('mainController',
     function ($scope, $http, $sce) {
 
         $scope.action = null;
+        $scope.layout = {
+            index: '../templates/index.html',
+            login: '../templates/login.html',
+            register: '../templates/register.html',
+            contact: '../templates/contact.html',
+            blog: '../templates/blog.html',
+            admin: '../templates/admin.html',
+            pending: '../templates/pending.html',
+        };
         $scope.formData = {};
 
         $scope.getIndexPage = function () {
